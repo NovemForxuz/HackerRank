@@ -23,22 +23,28 @@ class Result {
 
     public static int sockMerchant(int n, List<Integer> ar) {
     	// Write your code here
+    	//hashmap<Key,Value> pair
         HashMap<Integer, Integer> color = new HashMap<Integer, Integer>();
         int sockPair = 0;
         
+        //iterate through list
         for(int sock: ar){
             if(!color.containsKey(sock)){
+            	//add into hashmap (key,value) if doesn't exist
                 color.put(sock,1);
             }else{
+            	//update value for key 'sock' in hasmap if exist
                 color.put(sock, color.get(sock)+1);
             }
         }
         
+        //iterate through hashmap
         Iterator it = color.entrySet().iterator();
         while(it.hasNext()) {
         	HashMap.Entry pair = (HashMap.Entry)it.next();
+        	//update total number of pair for each color of sock 
         	sockPair += ((int)pair.getValue()/2);
-        	System.out.println("Pair of socks: " + sockPair);
+        	//System.out.println("Pair of socks: " + sockPair);
         	it.remove();
         }
         
@@ -52,7 +58,7 @@ public class SalesByMatch {
     	//Reading input
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
         //Writing output
-        //BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(System.getenv("OUTPUT_PATH")));
+        /*BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(System.getenv("OUTPUT_PATH")));*/
 
         int n = Integer.parseInt(bufferedReader.readLine().trim());
 
@@ -62,11 +68,13 @@ public class SalesByMatch {
 
         int result = Result.sockMerchant(n, ar);
 
+        /*
+         * bufferedWriter.write(String.valueOf(result));
+         * bufferedWriter.newLine();
+         */   
         System.out.println(result+"");
-        //bufferedWriter.write(String.valueOf(result));
-        //bufferedWriter.newLine();
 
         bufferedReader.close();
-        //bufferedWriter.close();
+        /*bufferedWriter.close();*/
     }
 }
