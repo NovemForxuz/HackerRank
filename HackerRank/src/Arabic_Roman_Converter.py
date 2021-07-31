@@ -1,15 +1,20 @@
 
-
+# a function to convert arabic to roman numerals
+# takes a single number as parameter, t
 def arabic_roman_converter(t):
-    result = ''
-    temp = t
+    result = ''  # store result after each loop
+    temp = t     # store remaining value after each loop
     while temp != 0:
+        # if value bigger than 1000, division by 1000 will give non-zero
         if (temp // 1000) != 0:
-            result += 'M'
-            temp -= 1000
+            result += 'M'   # append to result
+            temp -= 1000    # re-initialize value
+
+        # else if value is bigger than 900, division by 900 will give non-zero
         elif (temp // 900) != 0:
-            result += 'CM'
-            temp -= 900
+            result += 'CM'  # append to result
+            temp -= 900     # re-initialize value
+
         elif (temp // 500) != 0:
             result += 'D'
             temp -= 500
@@ -43,8 +48,12 @@ def arabic_roman_converter(t):
         elif (temp // 1) != 0:
             result += 'I'
             temp -= 1
+
+    # return the result after loop end
     return result
 
 
+# get user input in integer
 user_input = int(input("Write a number: "))
+# print the result of calling function 'arabic_roman_converter'
 print(arabic_roman_converter(user_input))
