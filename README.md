@@ -1,7 +1,6 @@
 # HackerRank
 
-<h2>"Challenge your mind, polish your skills"</h2>
-My HackerRank problem solutions.
+A series of coding challenges.
 
 
 Come join!
